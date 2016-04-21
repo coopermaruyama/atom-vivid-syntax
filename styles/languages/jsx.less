@@ -1,8 +1,25 @@
 atom-text-editor::shadow,
 :host {
   .source.jsx {
-    .tag.open .meta.curly.brace {
-      color: hsl(51, 43%, 65%);
+    /**
+     * Curly braces in:
+     * <div prop={myVar}>
+     */
+    .tag.open .punctutation.curly.brace {
+      &.start, &.end {
+       color: hsl(51, 43%, 65%);
+      }
+    }
+    /**
+     * e.g. `render` in:
+     * render() {
+     * }
+     */
+    .meta:not(.method-call) > .entity.name.function {
+      color: @pastel-green;
+    }
+    .delimiter.period {
+      color: @js-foreground-color;
     }
   }
 }
