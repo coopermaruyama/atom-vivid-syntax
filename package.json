@@ -8,7 +8,7 @@
     "purple",
     "vivid"
   ],
-  "repository": "https://github.com/coopermaruyama/vivid-syntax",
+  "repository": "https://github.com/coopermaruyama/atom-vivid-syntax",
   "license": "MIT",
   "readmeFilename": "README.md",
   "engines": {
