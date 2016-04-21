@@ -1,0 +1,17 @@
+{
+  "name": "vivid-syntax",
+  "theme": "syntax",
+  "version": "1.0.0",
+  "description": "Deep, dark, vivid syntax theme.",
+  "keywords": [
+    "dark",
+    "purple",
+    "vivid"
+  ],
+  "repository": "https://github.com/coopermaruyama/vivid-syntax",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}

@@ -1,0 +1,394 @@
+// This defines all syntax variables that syntax themes must implement when they
+// include a syntax-variables.less file.
+
+// General colors
+@syntax-text-color: hsl(260, 10%, 85%);
+@syntax-cursor-color: #ff1018;
+@syntax-selection-color: hsla(220, 25%, 21%, 0.5);
+
+@apathy-background-color: hsl(260, 25%, 6%);
+@apathy-underlayer-bg-color: hsl(258, 6%, 6%);
+@apathy-inactive-bg-color: hsl(260,5%,11%);
+@apathy-inactive-overlay-color: hsla(261, 34%, 5%, 0.9);
+
+@syntax-background-color: @apathy-background-color;
+@syntax-underlayer-bg-color: @apathy-underlayer-bg-color;
+@syntax-inactive-bg-color: @apathy-inactive-bg-color;
+@syntax-inactive-overlay-color: @apathy-inactive-overlay-color;
+
+// Filters (default values)
+@config-syntax-brightness: 100%;
+@config-syntax-saturate: 100%;
+@config-syntax-contrast: 100%;
+// These get overwritten by config.
+@syntax-brightness: @config-syntax-brightness;
+@syntax-saturate: @config-syntax-saturate;
+@syntax-contrast: @config-syntax-contrast;
+
+@import "custom";
+// Guide colors
+@syntax-wrap-guide-color: #0D0A15;
+@syntax-indent-guide-color:  hsl(262, 4%, 17%);
+@syntax-invisible-character-color:hsl(242, 17%, 18%);
+
+// For find and replace markers
+@syntax-result-marker-bg-color: hsl(230,19%, 32%);
+@syntax-result-marker-color: hsl(40, 85%, 44%);
+@syntax-result-marker-color-selected: hsl(15, 82%, 72%);
+
+// Gutter colors
+@syntax-gutter-text-color: hsl(273, 5%, 27%);
+@syntax-gutter-text-color-selected: hsl(0, 0%, 25%);
+@syntax-gutter-background-color: hsl(260, 15%, 9%);
+@syntax-gutter-background-color-selected:  hsl(240, 17%, 17%);
+// Scrollbar
+@scrollbar-bg-color: hsla(230, 2%, 7%, 0.8);
+
+// Minimap
+@minimap-bg-color: hsla(261, 12%, 9%, 0.4);
+@minimap-gradient-from: hsl(250, 5%, 25%);
+@minimap-gradient-to: hsl(250, 18%, 80%);
+
+// For git diff info. i.e. in the gutter
+// These are static and were not extracted from your textmate theme
+@syntax-color-renamed: #96CBFE;
+@syntax-color-added: #A8FF60;
+@syntax-color-modified: #E9C062;
+@syntax-color-removed: #CC6666;
+
+
+// ----------------------------------------------------------------------------
+// Font
+// ----------------------------------------------------------------------------
+@font-face {
+						font-family: 'Source Code Pro';
+						src: url('atom://apathy-theme/styles/fonts/SourceCodePro-Light.ttf') format('truetype');
+						font-weight: 400;
+						font-style: normal;
+}
+@font-face {
+						font-family: 'Source Code Pro';
+						src: url('atom://apathy-theme/styles/fonts/SourceCodePro-Light.ttf') format('truetype');
+						font-weight: 300;
+						font-style: normal;
+}
+@font-face {
+						font-family: 'Source Code Pro';
+						src: url('atom://apathy-theme/styles/fonts/SourceCodePro-ExtraLight.ttf') format('truetype');
+						font-weight: 200;
+						font-style: normal;
+}
+@font-face {
+						font-family: 'Source Code Pro';
+						src: url('atom://apathy-theme/styles/fonts/SourceCodePro-Regular.ttf') format('truetype');
+						font-weight: 700;
+						font-style: normal;
+}
+@font-face {
+						font-family: 'Source Code Pro';
+						src: url('atom://apathy-theme/styles/fonts/SourceCodePro-Medium.ttf') format('truetype');
+						font-weight: 800;
+						font-style: normal;
+}
+@font-face {
+						font-family: 'Source Code Pro';
+						src: url('atom://apathy-theme/styles/fonts/SourceCodePro-Bold.ttf') format('truetype');
+						font-weight: 900;
+						font-style: normal;
+}
+@font-face {
+						font-family: 'Inconsolata';
+						src: url('atom://apathy-theme/styles/fonts/Inconsolata.otf') format('truetype');
+						font-weight: 400;
+						font-style: normal;
+}
+@font-face {
+						font-family: 'Inconsolata';
+						src: url('atom://apathy-theme/styles/fonts/Inconsolata-Bold.ttf') format('truetype');
+						font-weight: 700;
+						font-style: normal;
+}
+
+// -------------------------------------------------------------------------
+// SETTINGS
+@enable-tree-bg: false;
+
+
+//------------------------------------------------------------------
+// Syntax colors
+// -----------------------------------------------------------------
+
+//
+// Common color offsets
+//
+@white: hsl(60,10%, 90%);
+@red: hsl(334, 57%, 48%);
+@blue: hsl(199, 80%, 72%);
+@green: hsl(79, 78%, 58%);
+@yellow: hsl(56, 69%, 73%);
+@orange: hsl(36, 95%, 57%);
+@green: hsl(79, 81%, 70%);
+@gray: hsl(0, 0%, 66%);
+@pink: hsl(300, 100%, 71%);
+//
+//
+//	Base Colors: For common scopes
+//
+@daytime: hsl(63, 15%, 90%);
+@sunrise: hsl(50, 70%, 75%);
+@gulf-stream: hsl(173, 29%, 60%);
+@dune: hsl(57, 18%, 60%);
+@flamingo: hsl(351, 98%, 78%);
+@baby-blue: hsl(187, 98%, 68%);
+@gray-blend: hsl(240, 10%, 30%);
+@dark-gray: hsl(190, 6%, 38%);
+@light-gray: hsl(192, 9%, 55%);
+@tower-gray: hsl(190, 24%, 71%);
+@subtle-color: hsl(265, 10%, 35%);
+@subtle-blue: hsl(200, 15%, 55%);
+@bismark: hsl(199, 21%, 37%);
+@emerald: hsl(140, 70%, 60%);
+@caper: hsl(75, 66%, 80%);
+@colonial-white: hsl(44, 57%, 75%);
+@kobi: hsl(347, 72%, 72%);
+@bright-ube: hsl(300, 90%, 90%);
+@pink-orange: hsl(21, 95%, 60%);
+@silk: hsl(32, 18%, 67%);
+//
+//
+// Highlights: For constants, keywords, etc
+//
+@lavender: hsl(267, 100%, 70%);
+@orange-red: hsl(11, 89%, 60%);
+@raspberry: hsl(334, 100%, 45%);
+@pacific-blue: hsl(189, 100%, 39%);
+@sulu: hsl(80, 77%, 58%);
+@scooter: hsl(190, 60%, 50%);
+@disco: hsl(280, 80%, 55%);
+@candlelight: hsl(48, 100%, 54%);
+@tomato: hsl(11, 100%, 63%);
+//
+//
+// Define Classes
+//
+@foreground-color: hsl(260, 5%, 82%);
+@comment-color: lighten(@gray-blend, 10%);
+@string-color: @sunrise;
+@string-bright-color: @caper;
+@numeric-color: @emerald;
+@meta-function-color: @tower-gray;
+@primitive-color: @green; // booleans, null, etc
+@keyword-color: @orange;
+
+
+
+// ----------------------------------------------------------------------------
+// Transitions
+// ----------------------------------------------------------------------------
+@-webkit-keyframes neon1 {
+from {
+  text-shadow: 0 0 0px #fff,
+             0 0 3px  #fff,
+             0 0 6.6px  #FF1177,
+             0 0 16.9px  #FF1177,
+
+}
+to {
+  text-shadow:0 0 0.6px #fff,
+             0 0 3.7px  #fff,
+             0 0 7.3px  #FF1177,
+             0 0 17.3px  #FF1177,
+}
+}
+
+@-webkit-keyframes neon2 {
+from {
+  text-shadow: 0 0 10px #fff,
+             0 0 20px  #fff,
+             0 0 30px  #fff,
+             0 0 40px  #228DFF,
+             0 0 70px  #228DFF,
+             0 0 80px  #228DFF,
+             0 0 100px #228DFF,
+             0 0 150px #228DFF;
+}
+to {
+  text-shadow: 0 0 5px #fff,
+             0 0 10px #fff,
+             0 0 15px #fff,
+             0 0 20px #228DFF,
+             0 0 35px #228DFF,
+             0 0 40px #228DFF,
+             0 0 50px #228DFF,
+             0 0 75px #228DFF;
+}
+}
+
+@-webkit-keyframes neon3 {
+from {
+  text-shadow: 0 0 10px #fff,
+             0 0 20px  #fff,
+             0 0 30px  #fff,
+             0 0 40px  #FFDD1B,
+             0 0 70px  #FFDD1B,
+             0 0 80px  #FFDD1B,
+             0 0 100px #FFDD1B,
+             0 0 150px #FFDD1B;
+}
+to {
+  text-shadow: 0 0 5px #fff,
+             0 0 10px #fff,
+             0 0 15px #fff,
+             0 0 20px #FFDD1B,
+             0 0 35px #FFDD1B,
+             0 0 40px #FFDD1B,
+             0 0 50px #FFDD1B,
+             0 0 75px #FFDD1B;
+}
+}
+
+@-webkit-keyframes neon4 {
+from {
+  text-shadow: 0 0 10px #fff,
+             0 0 20px  #fff,
+             0 0 30px  #fff,
+             0 0 40px  #B6FF00,
+             0 0 70px  #B6FF00,
+             0 0 80px  #B6FF00,
+             0 0 100px #B6FF00,
+             0 0 150px #B6FF00;
+}
+to {
+  text-shadow: 0 0 5px #fff,
+             0 0 10px #fff,
+             0 0 15px #fff,
+             0 0 20px #B6FF00,
+             0 0 35px #B6FF00,
+             0 0 40px #B6FF00,
+             0 0 50px #B6FF00,
+             0 0 75px #B6FF00;
+}
+}
+
+@-webkit-keyframes neon5 {
+from {
+  text-shadow: 0 0 10px #fff,
+             0 0 20px  #fff,
+             0 0 30px  #fff,
+             0 0 40px  #FF9900,
+             0 0 70px  #FF9900,
+             0 0 80px  #FF9900,
+             0 0 100px #FF9900,
+             0 0 150px #FF9900;
+}
+to {
+  text-shadow: 0 0 5px #fff,
+             0 0 10px #fff,
+             0 0 15px #fff,
+             0 0 20px #FF9900,
+             0 0 35px #FF9900,
+             0 0 40px #FF9900,
+             0 0 50px #FF9900,
+             0 0 75px #FF9900;
+}
+}
+
+@-webkit-keyframes box1 {
+from {
+  box-shadow: 0px 0px 1px 0px #fff,
+							0px 0px 4px 0.5px #fff,
+							0px 0px 4.5px 0.9px #fff,
+							0px 0px 5px 3px hsl(40, 85%, 44%),
+							0px 0px 7px 5px hsl(40, 85%, 44%),
+							0px 0px 35px 0px hsl(40, 85%, 44%)
+}
+to {
+  box-shadow: 0px 0px 3.3px 0px #fff,
+							0px 0px 6.3px 0.5px #fff,
+							0px 0px 6.8px 1.6px #fff,
+							0px 0px 7.3px 3.7px hsl(40, 85%, 44%),
+							0px 0px 9.3px 5.7px hsl(40, 85%, 44%),
+							0px 0px 37.3px 2px hsl(40, 85%, 44%)
+}
+}
+
+@-webkit-keyframes neon6 {
+from {
+  text-shadow: 0 0 0px #fff,
+             0 0 10px #fff,
+						0 0 10px #fff,
+             0 0 0px #ff00de,
+             0 0 7px #ff00de,
+             0 0 15px #ff00de,
+}
+to {
+  text-shadow: 0 0 9px #fff,
+             0 0 25px #fff,
+						0 0 35px #fff,
+             0 0 20px #ff00de,
+             0 0 35px #ff00de,
+             0 0 80px #ff00de,
+}
+}
+
+
+/*=============================================================================
+=    Subtle Animations for source text
+=============================================================================*/
+@-webkit-keyframes text-pink {
+from {
+  text-shadow: 0 0 0px #fff,
+             0 0 10px #fff,
+						0 0 10px #fff,
+             0 0 0px #ff00de,
+             0 0 7px #ff00de,
+             0 0 15px #ff00de,
+}
+to {
+  text-shadow: 0 0 5px #fff,
+             0 0 17px #fff,
+						0 0 25px #fff,
+             0 0 10px #ff00de,
+             0 0 20px #ff00de,
+             0 0 30px #ff00de,
+}
+}
+
+@-webkit-keyframes text-blue {
+from {
+  text-shadow: 0 0 10px #fff,
+             0 0 20px  #fff,
+             0 0 20px  #fff,
+             0 0 30px  #228DFF,
+             0 0 50px  #228DFF,
+             0 0 70px  #228DFF,
+             0 0 100px #228DFF;
+}
+to {
+  text-shadow: 0 0 5px #fff,
+             0 0 10px #fff,
+             0 0 10px #fff,
+             0 0 10px #228DFF,
+             0 0 25px #228DFF,
+             0 0 30px #228DFF,
+             0 0 45px #228DFF;
+}
+}
+@-webkit-keyframes text-orange {
+from {
+  text-shadow: 0px 0px 1px 0px #fff,
+							0px 0px 4px 0.5px #fff,
+							0px 0px 4.5px 0.9px #fff,
+							0px 0px 5px 3px hsl(40, 85%, 44%),
+							0px 0px 7px 5px hsl(40, 85%, 44%),
+							0px 0px 35px 0px hsl(40, 85%, 44%)
+}
+to {
+  text-shadow: 0px 0px 3.3px 0px #fff,
+							0px 0px 6.3px 0.5px #fff,
+							0px 0px 6.8px 1.6px #fff,
+							0px 0px 7.3px 3.7px hsl(40, 85%, 44%),
+							0px 0px 9.3px 5.7px hsl(40, 85%, 44%),
+							0px 0px 37.3px 2px hsl(40, 85%, 44%)
+}
+}

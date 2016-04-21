@@ -1,0 +1,54 @@
+//
+//
+//  --------------------------------------------------------------------
+// 	Jasmine
+//
+.source.spec.js {
+  color: @white;
+  .support.class.js {
+    color: @flamingo;
+    font-weight: 700;
+  }
+  .string.quoted.single,
+  .string.quoted.double,
+  .string.quoted{
+    color: hsl(74, 60%, 53%);
+    font-weight: 300;
+  }
+  .storage.type.function {
+    color: @gulf-stream;
+    font-weight: bold;
+  }
+  .punctuation.terminator.statement {
+    font-weight: normal;
+    color: hsl(267, 3%, 40%);
+    text-shadow: 0px -1px hsl(0, 0%, 0%);
+  }
+  .meta.delimiter.period {
+    color: hsl(34, 100%, 91%);
+  }
+  .meta.brace.curly {
+    color: hsl(40, 0%, 30%);
+  }
+  .meta.brace.round {
+    color: hsl(280, 22%, 60%);
+  }
+  .meta.brace.square {
+    color: hsl(42, 54%, 75%);
+  }
+  /*-------  Operator symbols default  -------*/
+  .leading-whitespace ~ .keyword.operator {
+    color: hsl(0, 94%, 56%);
+  }
+  /*-------  object definitions  -------*/
+  // match the '=' in  var obj = {} but NOT 'else {'
+  // match even with a space in between
+  .operator:not(.control) ~ .meta.brace.curly.js,
+  //  match 2 close curlies, for defining objects on 1 line.
+  // match even with a space in between
+  .brace.curly ~ .brace.curly.js:nth-last-child(n+2),
+  // Match the closing curly on multi-line object definitions
+  > .leading-whitespace + .meta.brace.curly:nth-last-child(2) {// only match if followed by semicolon
+    color: hsl(36, 5%, 53%);
+  }
+}
