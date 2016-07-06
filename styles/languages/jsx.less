@@ -5,7 +5,7 @@ atom-text-editor::shadow,
      * Curly braces in:
      * <div prop={myVar}>
      */
-    .tag.open .punctutation.curly.brace {
+    .tag.open > .meta.brace.curly > .punctutation.curly.brace {
       &.start, &.end {
        color: hsl(51, 43%, 65%);
       }
@@ -16,7 +16,7 @@ atom-text-editor::shadow,
      * }
      */
     .meta:not(.method-call) > .entity.name.function {
-      color: @pastel-green;
+      color: @eton-blue;
     }
     .delimiter.period {
       color: @js-foreground-color;
