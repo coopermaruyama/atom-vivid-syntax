@@ -21,5 +21,18 @@ atom-text-editor::shadow,
     .delimiter.period {
       color: @js-foreground-color;
     }
+
+    /* attribute JS expressions */
+    .meta.embedded.expression {
+      .string.quoted, .string.quoted > .other {
+        color: hsl(74, 58%, 66%);
+        font-style: normal;
+      }
+      .string.quoted.template .punctuation.quasi.element {
+        &.begin, &.end {
+          color: hsl(0, 0%, 50%);
+        }
+        }
+    }
   }
 }
