@@ -49,5 +49,24 @@ atom-text-editor::shadow,
     .scope.tag.block .meta.tag.block .meta.scope {
       color: darken(@js-foreground-color, 10%);
     }
+
+    /* tag names (div, span, etc) */
+    .entity.name.tag {
+      color: hsl(0, 0%, 60%);
+    }
+
+    /*
+      <div>
+        {button} <--- this line
+      </div>
+     */
+    .meta.scope.tag.block .meta.scope > .expression > .punctuation.embedded.section.jsx {
+        @braceColor: hsl(280, 75%, 60%);
+        &.begin, &.end {
+         color: @braceColor;
+         -webkit-text-stroke-color: @braceColor;
+         -webkit-text-stroke-width: 0.05em;
+        }
+    }
   }
 }
