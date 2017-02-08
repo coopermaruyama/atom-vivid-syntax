@@ -1,9 +1,9 @@
 # Vivid Syntax   ////  Atom Syntax Theme
 
 ![Vivid main
-screenshot](https://dl.dropboxusercontent.com/u/1406414/cloud/hero.png)
+screenshot](https://www.dropbox.com/s/s0mhfq6d9zrpkv2/vivid-syntax.png?dl=1)
 
-[View full-screen](https://www.dropbox.com/s/dt8y45icuw6co8e/full-screen.png?dl=0)
+[View full-screen](https://www.dropbox.com/s/l98vhceu85hi78l/Screenshot%202017-02-08%2013.53.34.png?dl=0)
 
 
 This dark syntax theme sports a subtle, deep purple base with vivid candy-like colors which bring your syntax to life without going too far to the point of being impractical.
@@ -15,6 +15,18 @@ This dark syntax theme sports a subtle, deep purple base with vivid candy-like c
 * **Font size:** 13-14px depending on resolution.
 
 * **Font Family:** Source Code Pro
+
+
+## Calibrate
+
+By default, the brightness, saturation, and contrast are lowered a bit so you can calibrate for your monitor. To do so, add the following into your user stylesheet (Atom > Stylesheet):
+
+```less
+atom-text-editor .line > .syntax--source {
+  -webkit-filter: saturate(90%) brightness(80%) contrast(90%);
+}
+```
+The above values will do nothing since they are the default values. Try increasing/decreasing each to your liking.
 
 
 # Language Previews
