@@ -1,9 +1,7 @@
 # Vivid Syntax   ////  Atom Syntax Theme
 
 ![Vivid main
-screenshot](https://www.dropbox.com/s/s0mhfq6d9zrpkv2/vivid-syntax.png?dl=1)
-
-[View full-screen](https://www.dropbox.com/s/l98vhceu85hi78l/Screenshot%202017-02-08%2013.53.34.png?dl=0)
+screenshot](https://www.dropbox.com/s/9ftemviukkpgafb/Screenshot%202017-02-08%2014.04.16.png?dl=1)
 
 
 This dark syntax theme sports a subtle, deep purple base with vivid candy-like colors which bring your syntax to life without going too far to the point of being impractical.
