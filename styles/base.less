@@ -4,7 +4,7 @@
 
 
 
-atom-text-editor, :host {
+atom-text-editor {
   background-color: @syntax-background-color;
   color: @syntax-text-color;
   font-family: 'Source Code Pro';
@@ -28,7 +28,7 @@ atom-pane-container atom-pane {
 atom-pane-container atom-pane:not(.active) {
   // opacity: 0.8;
   // -webkit-filter: brightness(75%) saturate(75%);
-  & /deep/ .source {
+  & /deep/ .syntax--source {
     -webkit-filter: brightness(60%) opacity(0.8);
   }
   & /deep/ .gutter {
@@ -50,7 +50,7 @@ atom-pane-container atom-pane:before {
   bottom: 0;
   content: ' ';
 }
-atom-text-editor .gutter, :host .gutter {
+atom-text-editor .gutter {
   background-color: @syntax-gutter-background-color;
   color: @syntax-gutter-text-color;
   // Soften edge between gutter and text editor.
@@ -59,32 +59,31 @@ atom-text-editor .gutter, :host .gutter {
     box-shadow: inset 1px 0px hsl(257, 24%, 12%), inset -1px 0px hsl(0, 0%, 0%);
   }
 }
-atom-text-editor::shadow atom-text-editor-minimap, atom-text-editor atom-text-editor-minimap {
+atom-text-editor.editor atom-text-editor-minimap {
   background: @minimap-bg-color;
   box-shadow: inset 0px 17px 56px hsla(0, 0%, 0%, 0.4);
 }
-atom-pane:not(.active) atom-text-editor::shadow atom-text-editor-minimap, atom-text-editor atom-text-editor-minimap {
+atom-pane:not(.active) atom-text-editor.editor atom-text-editor-minimap {
   background: hsla(0, 0%, 0%, 0.8);
 }
-atom-text-editor::shadow atom-text-editor-minimap::shadow .minimap-visible-area, atom-text-editor atom-text-editor-minimap::shadow .minimap-visible-area {
+atom-text-editor.editor atom-text-editor-minimap::shadow .minimap-visible-area, atom-text-editor atom-text-editor-minimap.editor .minimap-visible-area {
   background-color: hsl(0, 0%, 53%);
 opacity: .2;
 background: linear-gradient(90deg, @minimap-gradient-from 0%, @minimap-gradient-to 50%, @minimap-gradient-from 100%);
 box-shadow: inset 0px 17px 38px hsla(0, 0%, 0%, 0.4);
 }
-atom-text-editor .gutter .line-number.cursor-line, :host .gutter .line-number.cursor-line {
+atom-text-editor .gutter .line-number.cursor-line {
   background-color: @syntax-gutter-background-color-selected;
   color: @syntax-gutter-text-color-selected;
     /*color: hsl(0, 0%, 25%);*/
     text-shadow: none;
 }
 
-atom-text-editor .gutter .line-number.cursor-line-no-selection, :host .gutter .line-number.cursor-line-no-selection {
+atom-text-editor .gutter .line-number.cursor-line-no-selection {
   color: @syntax-gutter-text-color-selected;
 }
 
-atom-text-editor .wrap-guide,
-:host .wrap-guide {
+atom-text-editor .wrap-guide {
   color: @syntax-wrap-guide-color;
   background-color: hsl(264,5%,3%);
   border-right: none;
@@ -94,12 +93,11 @@ atom-text-editor .wrap-guide,
 }
 
 
-atom-text-editor .invisible-character,
-:host .invisible-character {
+atom-text-editor .invisible-character {
   color: fadeout(@syntax-indent-guide-color,15%);
 }
 
-atom-text-editor .indent-guide, :host .indent-guide {
+atom-text-editor .indent-guide {
   color:  @syntax-indent-guide-color;
   background: none;
   box-shadow: inset 1px 0 hsl(262, 22%, 18%);
@@ -109,22 +107,23 @@ atom-text-editor .indent-guide, :host .indent-guide {
 }
 
 
-atom-text-editor.is-focused .cursor, :host(.is-focused) .cursor {
+atom-text-editor.is-focused .cursor {
   border-color: @syntax-cursor-color;
 }
 
 
-:host(.is-focused) .selection .region {
+atom-text-editor.is-focused .selection .region {
   background-color: @syntax-selection-color;
   z-index: 1;
 }
 
-atom-text-editor.is-focused .line-number.cursor-line-no-selection, atom-text-editor.is-focused .line.cursor-line, :host(.is-focused) .line-number.cursor-line-no-selection, :host(.is-focused) .line.cursor-line {
+atom-text-editor.is-focused .line-number.cursor-line-no-selection, atom-text-editor.is-focused .line.cursor-line {
   background-color: hsl(265, 15%, 13%);
   border: none;
   z-index: 101;
-	& .source:not(.coffee) .entity.name.function,
-	& .source.coffee .meta.function .entity.name.function {
+
+	& .syntax--source:not(.coffee) .syntax--entity.syntax--name.syntax--function,
+	& .syntax--source.syntax--coffee .syntax--meta.syntax--function .syntax--entity.syntax--name.syntax--function {
 		-webkit-transition: all 1s;
 		-webkit-animation: neon6 1s ease-in-out infinite alternate;
 	}
@@ -132,16 +131,14 @@ atom-text-editor.is-focused .line-number.cursor-line-no-selection, atom-text-edi
 /**
  * Find Results
  */
-atom-text-editor .search-results .marker .region,
-:host .search-results .marker .region {
+atom-text-editor .search-results .syntax--marker .region {
    background-color: transparent;
    border: @syntax-result-marker-color;
  	-webkit-transition: all 0.5s;
  	-webkit-animation: neon3 0.5s ease-in-out infinite alternate;
 }
 atom-text-editor .highlight .current-result .region,
-:host .current-result .region,
-atom-text-editor::shadow .current-result .region {
+atom-text-editor.editor .current-result .region {
    border: @syntax-result-marker-color-selected;
    border-radius: 7px;
    border: 2px solid hsla(40, 85%, 33%, 0.8);
@@ -155,7 +152,7 @@ atom-text-editor::shadow .current-result .region {
    background: hsla(40, 1%, 59%,.1);
 }
 atom-text-editor .find-result .region,
-atom-text-editor::shadow .find-result .region {
+atom-text-editor.editor .find-result .region {
    border-radius: 3px;
    border: 1px solid @syntax-result-marker-color;
    box-sizing: border-box;
@@ -171,20 +168,20 @@ atom-text-editor::shadow .find-result .region {
 // -------------------------------------------------------------------
 // Common
 //
-.line > .source {
+.line > .syntax--source {
 	color: @foreground-color;
   -webkit-text-stroke-width: 0.05em;
   -webkit-filter: saturate(@syntax-saturate) brightness(@syntax-brightness) contrast(@syntax-contrast);
 }
-.comment {
+.syntax--comment {
   color: @comment-color;
 	font-weight: normal;
   -webkit-text-stroke-width: 0.04em;
-	.block.documentation {
+	.syntax--block.syntax--documentation {
 		color: lighten(@comment-color, 3%);
 	}
 }
-.string {
+.syntax--string {
   color: @string-color;
 	.brace + &,
 	.begin ~ &:not(:last-child) {
@@ -227,7 +224,7 @@ atom-text-editor::shadow .find-result .region {
 	font-weight: bold;
 }
 
-.keyword {
+.syntax--keyword {
 	color: @red;
 	font-weight: bold;
 	-webkit-text-stroke: 0.02em;
@@ -244,13 +241,13 @@ atom-text-editor::shadow .find-result .region {
 	  font-weight: bold;
 	  color: @blue;
 		font-style: normal;
-    .comment.block & {
+    .syntax--comment.syntax--block & {
       color: hsl(189, 60%, 40%);
     }
 	}
 }
 
-.entity {
+.syntax--entity {
   color: @orange;
 	&.name.class {
 	  text-decoration: underline;
@@ -312,7 +309,7 @@ atom-text-editor::shadow .find-result .region {
   background-color: #00a8c6;
 }
 
-.meta.structure.dictionary.json .string.quoted.double.json {
+.meta.structure.dictionary.json .syntax--string.quoted.double.json {
   color: #bcd42a;
 }
 
@@ -336,11 +333,11 @@ atom-text-editor::shadow .find-result .region {
   color: rgba(143, 190, 0, 0.63);
 }
 
-.entity.name.filename.find-in-files {
+.syntax--entity.name.filename.find-in-files {
   color: #E6DB74;
 }
 
-.keyword.other {
+.syntax--keyword.other {
   color: #b7b1a9;
 }
 
@@ -348,11 +345,11 @@ atom-text-editor::shadow .find-result .region {
   color: #eeffe0;
 }
 
-.meta.structure.dictionary.json .string.quoted.double.json {
+.meta.structure.dictionary.json .syntax--string.quoted.double.json {
   color: #ff5d38;
 }
 
-.meta.structure.dictionary.value.json .string.quoted.double.json {
+.meta.structure.dictionary.value.json .syntax--string.quoted.double.json {
   color: #bcd42a;
 }
 
@@ -363,7 +360,7 @@ atom-text-editor::shadow .find-result .region {
   color: #ede0ce;
 }
 
-.keyword.other.use, .keyword.other.function.use, .keyword.other.namespace, .keyword.other.new, .keyword.other.special-method, .keyword.other.unit, .keyword.other.use-as {
+.syntax--keyword.other.use, .syntax--keyword.other.function.use, .syntax--keyword.other.namespace, .syntax--keyword.other.new, .syntax--keyword.other.special-method, .syntax--keyword.other.unit, .syntax--keyword.other.use-as {
   color: #26a6a6;
 }
 
@@ -385,11 +382,11 @@ atom-text-editor::shadow .find-result .region {
 
 
 
-.string.interpolated {
+.syntax--string.interpolated {
   color: #45ffcd;
 }
 
-.string.regexp {
+.syntax--string.regexp {
   font-style: italic;
   color: #eb9949;
 }
@@ -458,7 +455,7 @@ atom-text-editor::shadow .find-result .region {
 //  ------------------------------------------------------------------
 //  Comment Markup
 //
-.source span.type {
+.syntax--source span.type {
   &.todo {
     color: hsl(289, 51%, 42%);
   }
@@ -485,8 +482,8 @@ atom-text-editor::shadow .find-result .region {
 // ----------------------------------------------------------------------------
 // Apathy Semantic
 //
-:host .source:not(.js-semantic) .apathy-span,
-:host .source .keyword + span:not(.string):not(.brace):not(.terminator):not(.operator):not(.api) {
+:host .syntax--source:not(.js-semantic) .apathy-span,
+:host .syntax--source .syntax--keyword + span:not(.syntax--string):not(.brace):not(.terminator):not(.operator):not(.api) {
   font-weight: normal;
   &[data-apathy-index~="1"] {
     text-shadow: 0px 0px 2px hsl(289, 51%, 42%),
