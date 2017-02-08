@@ -1,6 +1,6 @@
 # Vivid Syntax   ////  Atom Syntax Theme
 
-![Apathy main
+![Vivid main
 screenshot](https://dl.dropboxusercontent.com/u/1406414/cloud/hero.png)
 
 [View full-screen](https://www.dropbox.com/s/dt8y45icuw6co8e/full-screen.png?dl=0)
