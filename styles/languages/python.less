@@ -1,0 +1,102 @@
+.syntax--source.syntax--python {
+  color: hsl(222, 10%, 75%);
+
+  /**
+   * Keywords
+   */
+  .syntax--keyword {
+    color: hsl(256, 50%, 60%);
+  }
+
+  /**
+   * Control statements.
+   */
+  .syntax--control {
+
+  }
+
+  /**
+   * Storage
+   */
+  .syntax--storage {
+
+  }
+
+  /**
+   * Variables
+   */
+  .syntax--variable {
+    color: hsl(222, 10%, 75%);
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /**
+   * Params
+   */
+  .syntax--parameter {
+    font-style: italic;
+    font-weight: 200;
+    color: hsl(300, 35%, 70%);
+  }
+
+  /**
+   * The name of a function
+   */
+  .syntax--name.syntax--function {
+    color: hsl(131, 45%, 70%);
+  }
+
+  .syntax--function-call.syntax--generic {
+    color: hsl(173, 29%, 60%);
+  }
+
+  .syntax--function-call {
+    .syntax--arguments {
+      &.syntax--begin, &.syntax--end {
+        color: hsl(193, 9%, 38%);
+      }
+    }
+  }
+
+  /**
+   * Strings
+   */
+  .syntax--string {
+    color: hsl(74, 50%, 55%);
+  }
+
+  .syntax--dict {
+    &.syntax--begin, &.syntax--end {
+      color: hsl(193, 9%, 38%);
+      font-weight: 700;
+    }
+  }
+
+  .syntax--assignment {
+    color: hsl(334, 100%, 45%);
+  }
+
+  .syntax--comparison {
+    color: hsl(334, 100%, 45%);
+  }
+
+  /**
+   * keyword: def
+   */
+  .syntax--storage.syntax--type.syntax--function {
+    color: hsl(60, 11%, 75%);
+    font-weight: 400;
+    -webkit-text-stroke-width: 0.04em;
+  }
+
+  /**
+   * Comments
+   * NOTE: This MUST be placed AFTER the string styles.
+   */
+  .syntax--docstring,
+  .syntax--docstring.syntax---string,
+  .syntax--docstring .syntax--string {
+    color: hsl(233, 15%, 35%);
+  }
+}
