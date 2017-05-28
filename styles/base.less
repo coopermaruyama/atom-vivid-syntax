@@ -16,28 +16,28 @@ atom-text-editor {
   text-shadow: none;
   // letter-spacing: -0.01em !important;
 }
-atom-pane:not(.active) atom-text-editor {
+atom-text-editor:not(.is-focused) {
   color: hsla(0, 100%, 100%, 0.6);
 }
-atom-pane:not(.active) atom-text-editor .underlayer {
+atom-text-editor:not(.is-focused) .underlayer {
   background-color: @syntax-underlayer-bg-color;
 }
 atom-pane-container atom-pane {
   background-color: hsl(204, 7%, 14%);
 }
-atom-pane-container atom-pane:not(.active) {
+atom-text-editor:not(.is-focused) {
   // opacity: 0.8;
   // -webkit-filter: brightness(75%) saturate(75%);
-  & /deep/ .syntax--source {
-    -webkit-filter: brightness(60%) opacity(0.8);
+  .line > .syntax--source {
+    -webkit-filter: brightness(70%) opacity(0.8);
   }
-  & /deep/ .gutter {
+  .gutter {
     opacity: 0.7;
     .line-number {
       opacity: 0.5 !important;
     }
   }
-  & /deep/ .line {
+  .line {
     background-color: transparent;
   }
 }
@@ -63,7 +63,7 @@ atom-text-editor.editor atom-text-editor-minimap {
   background: @minimap-bg-color;
   box-shadow: inset 0px 17px 56px hsla(0, 0%, 0%, 0.4);
 }
-atom-pane:not(.active) atom-text-editor.editor atom-text-editor-minimap {
+atom-text-editor.editor:not(.is-focused) atom-text-editor-minimap {
   background: hsla(0, 0%, 0%, 0.8);
 }
 atom-text-editor.editor atom-text-editor-minimap::shadow .minimap-visible-area, atom-text-editor atom-text-editor-minimap.editor .minimap-visible-area {
