@@ -12,7 +12,7 @@ atom-text-editor {
   font-weight: normal;
   // text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased !important;
-  -webkit-text-stroke-width: 0.03em;
+  -webkit-text-stroke-width: 0.02em;
   text-shadow: none;
   // letter-spacing: -0.01em !important;
 }
@@ -169,13 +169,14 @@ atom-text-editor.editor .find-result .region {
 //
 .line > .syntax--source {
 	color: @foreground-color;
-  -webkit-text-stroke-width: 0.05em;
+  -webkit-text-stroke-width: 0.02em;
   -webkit-filter: saturate(@syntax-saturate) brightness(@syntax-brightness) contrast(@syntax-contrast);
 }
 .syntax--comment {
   color: @comment-color;
+  opacity: 0.9;
 	font-weight: normal;
-  -webkit-text-stroke-width: 0.04em;
+  -webkit-text-stroke-width: 0.02em;
 	.syntax--block.syntax--documentation {
 		color: lighten(@comment-color, 3%);
 	}
@@ -249,7 +250,7 @@ atom-text-editor.editor .find-result .region {
 .syntax--entity {
   color: @orange;
 	&.name.class {
-	  color: #ff5d38;
+	  color: hsl(48, 100%, 54%);
     font-weight: 700;
 	}
 
