@@ -47,7 +47,7 @@
   /*-------  Semicolon  -------*/
   .punctuation.terminator.statement {
     color: hsl(180, 5%, 35%);
-    -webkit-text-stroke-width: 0.03em;
+    -webkit-text-stroke-width: @text-stroke-width-normal;
   }
   /*-------  Period (method/object delimiters)  -------*/
   .meta.delimiter.method.period {
@@ -86,7 +86,7 @@
   .storage.type.function {
     font-style: normal;
     font-weight: 700;
-    -webkit-text-stroke-width: 0.02em;
+    -webkit-text-stroke-width: @text-stroke-width-normal;
   }
   .storage.type.var {
     color: @tomato;
@@ -98,7 +98,7 @@
     .storage.type.function {
       color: hsl(59, 11%, 75%);
       font-weight: 400;
-      -webkit-text-stroke-width: 0.04em;
+      -webkit-text-stroke-width: @text-stroke-width-normal;
 
     }
     .entity.name.function {
@@ -117,7 +117,7 @@
   /*-------  an operator which follows a defined function's name  -------*/
   // example: the '=' operator in the above example.
   .entity.name.function + .keyword.operator {
-    -webkit-text-stroke-width: 0.02em;
+    -webkit-text-stroke-width: @text-stroke-width-normal;
     color: hsl(240, 15%, 70%);
     font-weight: normal;
   }
