@@ -1,89 +1,79 @@
-.generate-jsx-styles(@ns) {
-  .@{s}@{ns} {
-    &.@{s}JSXAttrs {
-      > @{s}attribute-name {
-        color: hsl(221, 6%, 49%);
-      }
-      > @{s}keyword.@{s}operator.@{s}assignment.@{s}@{ns} {
-        color: hsl(221, 6%, 49%);
-      }
+.syntax--source.syntax--jsx,
+.syntax--source.syntax--tsx {
+  .syntax--JSXAttrs {
+    > .syntax--attribute-name {
+      color: hsl(221, 6%, 49%);
     }
+    > .syntax--keyword.syntax--operator.syntax--assignment.syntax--jsx {
+      color: hsl(221, 6%, 49%);
+    }
+  }
 
-    &.@{s}variable {
-      color: hsl(222, 10%, 75%);
-      font-weight: 400;
+  /**
+  * Curly braces in:
+  * <div prop={myVar}>
+  */
+  .tag.open > .meta.brace.curly > .punctutation.curly.brace {
+    &.start, &.end {
+      color: hsl(51, 43%, 65%);
+    }
+  }
+  /**
+  * e.g. `render` in:
+  * render() {
+  * }
+  */
+  .meta:not(.method-call) > .entity.name.function {
+    color: @eton-blue;
+  }
+  .delimiter.period {
+    color: @js-foreground-color;
+  }
+
+  /* attribute JS expressions */
+  .meta.embedded.expression {
+    /* strings */
+    .string.quoted, .string.quoted > .other {
+      color: hsl(74, 58%, 66%);
       font-style: normal;
     }
-
-    /**
-    * Curly braces in:
-    * <div prop={myVar}>
-    */
-    &.tag.open > .meta.brace.curly > .punctutation.curly.brace {
-      &.start, &.end {
-        color: hsl(51, 43%, 65%);
-      }
-    }
-    /**
-    * e.g. `render` in:
-    * render() {
-    * }
-    */
-    &.meta:not(.method-call) > .entity.name.function {
-      color: @eton-blue;
-    }
-    &.delimiter.period {
-      color: @js-foreground-color;
-    }
-
-    /* attribute JS expressions */
-    &.meta.embedded.expression {
-      /* strings */
-      .string.quoted, .string.quoted > .other {
-        color: hsl(74, 58%, 66%);
-        font-style: normal;
-      }
-      /* template strings interpolation tags */
-      .string.quoted.template .punctuation.quasi.element {
-        &.begin, &.end {
-          color: hsl(0, 0%, 50%);
-        }
-      }
-      /* attribute braces */
-      .punctuation.embedded.section.@{s}@{ns} {
-        &.begin, &.end {
-          color: hsl(222, 10%, 65%);
-          -webkit-text-stroke-color: hsl(222, 10%, 65%);
-          -webkit-text-stroke-width: 0.02em
-        }
-      }
-    }
-
-    /* plaintext within html tags */
-    &.scope.tag.block .meta.tag.block .meta.scope {
-      color: darken(@js-foreground-color, 10%);
-    }
-
-    /* tag names (div, span, etc) */
-    &.entity.name.tag {
-      color: hsl(0, 0%, 60%);
-    }
-
-    /*
-    <div>
-    {button} <--- this line
-    </div>
-    */
-    &.meta.scope.tag.block .meta.scope > .expression > .punctuation.embedded.section.@{ns} {
-      @braceColor: hsl(280, 75%, 60%);
+    /* template strings interpolation tags */
+    .string.quoted.template .punctuation.quasi.element {
       &.begin, &.end {
-        color: @braceColor;
-        -webkit-text-stroke-color: @braceColor;
-        -webkit-text-stroke-width: 0.05em;
+        color: hsl(0, 0%, 50%);
+      }
+    }
+    /* attribute braces */
+    .punctuation.embedded.section.jsx {
+      &.begin, &.end {
+        color: hsl(222, 10%, 65%);
+        -webkit-text-stroke-color: hsl(222, 10%, 65%);
+        -webkit-text-stroke-width: 0.02em
       }
     }
   }
-}
 
-.generate-jsx-styles(jsx);
-.generate-jsx-styles(tsx);
+  /* plaintext within html tags */
+  .scope.tag.block .meta.tag.block .meta.scope {
+    color: darken(@js-foreground-color, 10%);
+  }
+
+  /* tag names (div, span, etc) */
+  .entity.name.tag {
+    color: hsl(0, 0%, 60%);
+  }
+
+  /*
+  <div>
+  {button} <--- this line
+  </div>
+  */
+  .meta.scope.tag.block .meta.scope > .expression > .punctuation.embedded.section.jsx {
+    @braceColor: hsl(280, 75%, 60%);
+    &.begin, &.end {
+      color: @braceColor;
+      -webkit-text-stroke-color: @braceColor;
+      -webkit-text-stroke-width: 0.05em;
+    }
+  }
+}
