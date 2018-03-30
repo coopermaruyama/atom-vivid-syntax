@@ -1,21 +1,32 @@
-.syntax--source.syntax--jsx,
-.syntax--source.syntax--tsx {
-  .syntax--JSXAttrs {
-    > .syntax--attribute-name {
+.@{s}jsx, .@{s}tsx {
+  // NOTE dont prefix this one with `&`
+  .@{s}JSXAttrs {
+    color: @js-foreground-color;
+    > .@{s}attribute-name {
       color: hsl(221, 6%, 49%);
     }
-    > .syntax--keyword.syntax--operator.syntax--assignment.syntax--jsx {
+    > .@{s}keyword.@{s}operator.@{s}assignment.@{s}jsx {
       color: hsl(221, 6%, 49%);
     }
+  }
+
+  &.@{s}punctuation.@{s}definition.@{s}tag {
+    color: @subtle-color;
   }
 
   /**
   * Curly braces in:
   * <div prop={myVar}>
   */
-  .tag.open > .meta.brace.curly > .punctutation.curly.brace {
-    &.start, &.end {
-      color: hsl(51, 43%, 65%);
+  // &.@{s}tag.@{s}open > .@{s}meta.@{s}brace.@{s}curly > .@{s}punctutation.@{s}curly.@{s}brace {
+  //   &.@{s}start, &.@{s}end {
+  //     color: hsl(51, 43%, 65%);
+  //   }
+  // }
+  &.@{s}punctuation.@{s}section.@{s}embedded {
+    &.@{s}begin, &.@{s}end {
+      color: @subtle-color;
+      font-weight: 700;
     }
   }
   /**
@@ -23,29 +34,29 @@
   * render() {
   * }
   */
-  .meta:not(.method-call) > .entity.name.function {
+  &.@{s}meta:not(.@{s}method-call) > .@{s}entity.@{s}name.@{s}function {
     color: @eton-blue;
   }
-  .delimiter.period {
+  &.@{s}delimiter.@{s}period {
     color: @js-foreground-color;
   }
 
   /* attribute JS expressions */
-  .meta.embedded.expression {
+  &.@{s}meta.@{s}embedded.@{s}expression {
     /* strings */
-    .string.quoted, .string.quoted > .other {
+    &.@{s}string.@{s}quoted, .@{s}string.@{s}quoted > .@{s}other {
       color: hsl(74, 58%, 66%);
       font-style: normal;
     }
     /* template strings interpolation tags */
-    .string.quoted.template .punctuation.quasi.element {
-      &.begin, &.end {
+    &.@{s}string.@{s}quoted.@{s}template .@{s}punctuation.@{s}quasi.@{s}element {
+      &.@{s}begin, &.@{s}end {
         color: hsl(0, 0%, 50%);
       }
     }
     /* attribute braces */
-    .punctuation.embedded.section.jsx {
-      &.begin, &.end {
+    &.@{s}punctuation.@{s}embedded.@{s}section.@{s}jsx {
+      &.@{s}begin, &.@{s}end {
         color: hsl(222, 10%, 65%);
         -webkit-text-stroke-color: hsl(222, 10%, 65%);
         -webkit-text-stroke-width: @text-stroke-width-normal
@@ -54,12 +65,12 @@
   }
 
   /* plaintext within html tags */
-  .scope.tag.block .meta.tag.block .meta.scope {
+  &.@{s}scope.@{s}tag.@{s}block .@{s}meta.@{s}tag.@{s}block .@{s}meta.@{s}scope {
     color: darken(@js-foreground-color, 10%);
   }
 
   /* tag names (div, span, etc) */
-  .entity.name.tag {
+  &.@{s}entity.@{s}name.@{s}tag {
     color: hsl(0, 0%, 60%);
   }
 
@@ -68,9 +79,9 @@
   {button} <--- this line
   </div>
   */
-  .meta.scope.tag.block .meta.scope > .expression > .punctuation.embedded.section.jsx {
+  &.@{s}meta.@{s}scope.@{s}tag.@{s}block .@{s}meta.@{s}scope > .@{s}expression > .@{s}punctuation.@{s}embedded.@{s}section.@{s}jsx {
     @braceColor: hsl(280, 75%, 60%);
-    &.begin, &.end {
+    &.@{s}begin, &.@{s}end {
       color: @braceColor;
       -webkit-text-stroke-color: @braceColor;
       -webkit-text-stroke-width: @text-stroke-width-normal;

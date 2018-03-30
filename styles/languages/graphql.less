@@ -1,0 +1,75 @@
+@graphql-source-color: hsl(220, 10%, 75%);
+
+.@{s}graphql {
+
+  color: @graphql-source-color;
+  font-weight: 400;
+  -webkit-text-stroke-width: 0;
+
+  &.@{s}type {
+    color: @graphql-source-color;
+    font-weight: 400;
+  }
+
+  &.@{s}variable {
+    color: hsl(220, 25%, 60%);
+  }
+
+  &.@{s}keyword {
+    color: hsl(334, 57%, 48%);
+    font-weight: 700;
+  }
+
+  &.@{s}punctuation {
+    color: hsl(230, 5%, 50%);
+    font-weight: 700;
+  }
+
+  &.@{s}brace {
+    color: hsl(230, 5%, 50%);
+    font-weight: 700;
+  }
+
+  &.@{s}function {
+    color: hsl(220, 15%, 70%);
+    font-weight: 400;
+  }
+
+  &.@{s}entity.@{s}name.@{s}function {
+    color: hsl(334, 57%, 48%);
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  &.@{s}support.@{s}type {
+    font-weight: normal;
+    -webkit-text-stroke-width: 0;
+  }
+
+  &.@{s}support.@{s}type.@{s}builtin {
+    color: hsl(45, 100%, 60%);
+    font-weight: 400;
+  }
+
+  &.@{s}meta.@{s}type.@{s}object > .@{s}variable {
+    color: hsl(0, 0%, 90%);
+  }
+
+  &.@{s}meta.@{s}type.@{s}object > .@{s}support.@{s}type {
+    color: hsl(198, 21%, 37%);
+    font-weight: 400;
+  }
+
+  &.@{s}variables > .@{s}variable {
+    color: hsl(198, 21%, 37%);
+    font-weight: 400;
+  }
+}
+
+// When a graphql template tag is used within a JS file
+// NOTE package contains a typo so we misspell on purpose.
+.@{s}entity.@{s}name.@{s}tag.@{s}grapahql.@{s}js,
+.@{s}graphql.@{s}js.@{s}entity.@{s}name.@{s}tag,
+.@{s}grapahql.@{s}entity.@{s}name.@{s}tag {
+  color: @comment-color;
+}

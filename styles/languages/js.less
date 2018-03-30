@@ -8,29 +8,28 @@
 @js-alt-color: multiply(@tower-gray, @js-foreground-color);
 @js-desaturated-alt-color: desaturate(@js-alt-color,20%);
 @js-parens-active-color: darken(@js-desaturated-alt-color, 10%);
-.syntax--source.syntax--js,
-.syntax--source.syntax--ts {
+.@{s}js {
   /*-------  Main text color  -------*/
   color: @js-foreground-color;
 
   /*----- Comment Color -----*/
-  .comment {
+  &.@{s}comment {
     color: hsl(233, 15%, 35%);
   }
 
   /**
   * The word 'const'
   */
-  .syntax--storage.syntax--type {
+  &.@{s}storage.@{s}type {
     -webkit-text-stroke-width: 0;
   }
 
   /*-------  Round/Curly Braces  -------*/
-  .meta.brace {
+  &.@{s}meta.@{s}brace {
     color: hsl(191, 9%, 38%);
     font-weight: 700;
-    &.curly,
-    &.round {
+    &.@{s}curly,
+    &.@{s}round {
       &:first-of-type,
       & + &,
       .leading-whitespace ~ &:nth-last-child(1):not(.round),
@@ -41,16 +40,16 @@
     }
   }
   /*-------  Commas  -------*/
-  .meta.brace.comma {
+  &.@{s}meta.@{s}brace.@{s}comma {
     color: @js-alt-color;
   }
   /*-------  Semicolon  -------*/
-  .punctuation.terminator.statement {
+  &.@{s}punctuation.@{s}terminator.@{s}statement {
     color: hsl(180, 5%, 35%);
     -webkit-text-stroke-width: @text-stroke-width-normal;
   }
   /*-------  Period (method/object delimiters)  -------*/
-  .meta.delimiter.method.period {
+  &.@{s}meta.@{s}delimiter.@{s}method.@{s}period {
     color: @yellow;
     font-weight: 700;
   }
@@ -58,24 +57,33 @@
   /**
   * Parentheses used in method calls
   */
-  .punctuation.bracket.round.js.arguments {
-    &.begin, &.end {
+  &.@{s}punctuation.@{s}bracket.@{s}round.@{s}arguments {
+    &.@{s}begin, &.@{s}end {
       color: hsl(191, 9%, 38%);
     }
+  }
+
+  &.@{s}punctuation {
+    color: @dark-gray;
   }
 
   /**
   * objects
   */
-  .object.key {
+  &.@{s}object.@{s}key {
     // the object key itself
-    .string {
-      color: hsl(50, 35%, 65%)
+    .@{s}string {
+      color: hsl(50, 35%, 65%);
     }
     // the colon
-    .punctuation {
-      color: hsl(50, 35%, 65%)
+    &@{s}punctuation {
+      color: hsl(50, 35%, 65%);
     }
+  }
+
+  &.@{s}storage.@{s}type {
+    font-weight: normal;
+    color: @light-gray;
   }
   //
   //
@@ -83,68 +91,73 @@
   // KEYWORDS
   //
   /*-------  The Word "function"  -------*/
-  .storage.type.function {
+  &.@{s}storage.@{s}type.@{s}function {
     font-style: normal;
     font-weight: 700;
     -webkit-text-stroke-width: @text-stroke-width-normal;
+    color: hsl(60, 11%, 75%);
   }
-  .storage.type.var {
+  &.@{s}storage.@{s}type.@{s}var {
     color: @tomato;
     font-style: italic;
   }
   /*----- Function declarations ------*/
   // ex: function myFunc(args) {...} (these can be declared after calls).
-  .meta.function.js {
-    .storage.type.function {
+  &.@{s}meta.@{s}function {
+    &.@{s}storage.@{s}type.@{s}function {
       color: hsl(59, 11%, 75%);
       font-weight: 400;
       -webkit-text-stroke-width: @text-stroke-width-normal;
 
     }
-    .entity.name.function {
+    &.@{s}entity.@{s}name.@{s}function {
       font-weight: 700;
       color: hsl(82, 50%, 55%);
     }
+  }
+
+  &.@{s}entity.@{s}name.@{s}function {
+    color: hsl(190, 20%, 65%);
   }
   /**
   * A function name when called.
   * e.g. `method` in instance.method()
   */
-  .entity.name.function {
+  &.@{s}method-call > .@{s}entity.@{s}name.@{s}function {
     font-weight: 400;
-    color: hsl(215, 70%, 78%);
+    color: hsl(131, 45%, 70%);
   }
   /*-------  an operator which follows a defined function's name  -------*/
   // example: the '=' operator in the above example.
-  .entity.name.function + .keyword.operator {
+  &.@{s}entity.@{s}name.@{s}function + .@{s}keyword.operator {
     -webkit-text-stroke-width: @text-stroke-width-normal;
     color: hsl(240, 15%, 70%);
     font-weight: normal;
   }
   /*-------  Matches class created with prototype  -------*/
   // ex: Sound.prototype = { ... }    <===== Matches 'Sound'
-  .support {
-    &.class {
+  &.@{s}support {
+    &.@{s}class {
       color: hsl(48, 100%, 54%);
     }
     // Matches the word 'prototype'
-    &.constant {
+    &.@{s}constant {
       color: @blue;
     }
     // matches the '=' after 'prototype'
-    &.constant + &.operator {
+    &.@{s}constant + &.@{s}operator {
       text-shadow: none;
     }
   }
-  & .keyword {
+  & .@{s}keyword {
     color: hsl(256, 50%, 60%);
     font-weight: 500;
-    &.operator {
+    &.@{s}operator {
       color: @yellow;
       &:not(:first-child):not(:last-child) {
         color: @raspberry;
       }
-      &.new {
+      &.@{s}new {
         color: hsl(250, 21%, 82%);
         font-weight: bold;
         -webkit-text-stroke: 0.01em;
@@ -156,63 +169,59 @@
   // Strings
   @string-sulu: multiply(@string-color, @sulu);
   @js-string-color: hsl(74, 50%, 55%);
-  .string.quoted.single {
+  &.@{s}string:not(.@{s}unquoted){
     color: @js-string-color;
   }
-  .string.quoted.double {
+  &.@{s}string.@{s}quoted.@{s}single {
     color: @js-string-color;
   }
-  .string.begin + .entity.name.function,
-  .string.begin:first-child,
-  .string.end:last-child,
-  .leading-whitespace + .string.begin,
-  .entity.name.function + .string.end {
+  &.@{s}string.@{s}quoted.@{s}double {
+    color: @js-string-color;
+  }
+  &.@{s}string.@{s}begin + .@{s}entity.@{s}name.@{s}function,
+  &.@{s}string.@{s}begin:first-child,
+  &.@{s}string.@{s}end:last-child,
+  &.@{s}leading-whitespace + .@{s}string.@{s}begin,
+  &.@{s}entity.@{s}name.@{s}function + .@{s}string.@{s}end {
     color: saturate(lighten(@string-sulu, 10%), 10%);
   }
-  .string.quoted.single {
-    &,
-    & > .string.begin,
-    & > .string.end {
-      color: saturate(lighten(@string-sulu, 10%), 10%);
-    }
-  }
-  .meta.brace.round + .string.quoted.single * {
+  &.@{s}meta.@{s}brace.@{s}round + .@{s}string.@{s}quoted.@{s}single * {
     color: saturate(lighten(@string-sulu, 10%), 10%);
   }
-  .meta.brace.round + .string.quoted.double * {
+  &.@{s}meta.@{s}brace.@{s}round + .@{s}string.@{s}quoted.@{s}double * {
     color: saturate(lighten(@string-sulu, 10%), 10%);
   }
-  .storage.type.function {
-    color: @scooter;
+  &.@{s}storage.@{s}type.@{s}function {
+    color: hsl(60, 11%, 75%);
   }
-  .meta.function {
-    > .parameters.begin,
-    > parameters.end {
+  &.@{s}meta.@{s}function {
+    > .@{s}parameters.@{s}begin,
+    > .parameters.@{s}end {
       color: @tower-gray;
     }
   }
-  .function {
-    .meta& {
+  &.@{s}function {
+    &.@{s}meta& {
       color: @sulu;
     }
   }
-  .variable {
+  &.@{s}variable {
     color: @js-foreground-color;
     font-weight: 400;
     font-style: normal;
   }
-  .variable.language.js {
+  &.@{s}variable.@{s}language.@{s}js {
     color: @orange;
     font-weight: bold;
   }
-  .variable.language.this {
+  &.@{s}variable.@{s}language.@{s}this {
     color: @orange;
   }
-  .variable.parameter {
+  &.@{s}variable.@{s}parameter {
     font-weight: 200;
     color: hsl(300, 35%, 70%);
   }
-  .leading-whitespace ~ .keyword.operator {
+  &.@{s}leading-whitespace ~ .@{s}keyword.operator {
     color: spin(saturate(darken(@js-foreground-color, 30%),70%), 330);
     // font-weight: normal;
   }

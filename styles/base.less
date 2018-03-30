@@ -6,7 +6,7 @@ atom-text-editor {
   color: @syntax-text-color;
   font-weight: normal;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+  // -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: @text-stroke-width-normal;
 }
 atom-text-editor:not(.is-focused) {
@@ -240,28 +240,28 @@ atom-text-editor.editor .find-result .region {
 	}
 }
 
-.syntax--entity {
+.@{s}entity {
   color: @orange;
-	&.name.class {
+	&.@{s}name.@{s}class {
 	  color: hsl(48, 100%, 54%);
     font-weight: 700;
 	}
 
-	&.other.inherited-class {
+	&.@{s}other.@{s}inherited-class {
 	  font-style: italic;
 	  text-decoration: underline;
 	  color: #ff5d38;
 	}
 
-	&.name.function {
-	  font-weight: 700;
+	&.@{s}name.@{s}function {
+	  font-weight: 400;
 	  color: @meta-function-color;
 	}
-	&.name.tag {
+	&.@{s}name.@{s}tag {
 	  color: #dedede;
 	}
 
-	&.other.attribute-name {
+	&.@{s}other.@{s}attribute-name {
 	  color: #ff7859;
 	}
 }
@@ -390,6 +390,7 @@ atom-text-editor.editor .find-result .region {
 // Language Imports
 //
 @import "languages/js.less";
+@import "languages/ts.less";
 @import "languages/jsx.less";
 @import "languages/tsx.less";
 @import "languages/meteor.less"; // includes spacebars
@@ -400,8 +401,9 @@ atom-text-editor.editor .find-result .region {
 @import "languages/coffeescript.less";
 @import "languages/jasmine.less";
 @import "languages/xml.less";
-@import "languages/typescript.less";
 @import "languages/python.less";
+@import "languages/graphql.less";
+
 //
 // TODO
 // @import "languages/c.less";

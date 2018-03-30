@@ -1,0 +1,260 @@
+// 	------------------------------------------------------------------
+// 	Typescript
+//
+
+@source-color: hsl(220, 10%, 75%);
+@source-alt-color: hsl(220, 10%, 75%);
+@function-color: hsl(131, 45%, 70%);
+@keyword-color: hsl(256, 50%, 60%);
+@modifier-color: hsl(0, 0%, 65%);
+@operator-color: hsl(334, 100%, 45%);
+@punctuation-color: hsl(230, 5%, 40%);
+@key-color: hsl(50, 35%, 65%);
+@class-color: hsl(45, 100%, 60%);
+@comment-color: hsl(233, 15%, 35%);
+@attribute-color: hsl(220, 10%, 70%);
+@string-color: hsl(74, 50%, 55%);
+
+.ts-default() {
+  color: @source-color;
+  font-weight: 400;
+  -webkit-text-stroke-width: 0;
+}
+
+.ts-alt() {
+  color: @source-alt-color;
+  font-weight: 400;
+  -webkit-text-stroke-width: 0;
+}
+
+.ts-function() {
+  color: @function-color;
+  font-weight: 400;
+  -webkit-text-stroke-width: 0;
+}
+
+.ts-keyword() {
+  color: @keyword-color;
+  font-weight: 400;
+  -webkit-text-stroke-width: 0;
+}
+
+.ts-modifier() {
+  color: @modifier-color;
+  font-weight: 400;
+  -webkit-text-stroke-width: 0;
+  font-style: italic;
+}
+
+.ts-operator() {
+  color: @operator-color;
+  font-weight: 400;
+  -webkit-text-stroke-width: 0;
+}
+
+.ts-punctuation() {
+  color: @punctuation-color;
+  font-weight: 400;
+  -webkit-text-stroke-width: 0;
+}
+
+.ts-attribute() {
+  color: @attribute-color;
+  font-weight: 400;
+  -webkit-text-stroke-width: 0;
+}
+
+.ts-key() {
+  color: @key-color;
+  font-weight: 400;
+  -webkit-text-stroke-width: 0;
+}
+
+.ts-class() {
+  color: @class-color;
+  font-weight: 400;
+  -webkit-text-stroke-width: 0;
+}
+
+.ts-comment() {
+  color: @comment-color;
+  font-weight: 400;
+  -webkit-text-stroke-width: 0;
+}
+
+.ts-string() {
+  color: @string-color;
+  font-weight: 400;
+  -webkit-text-stroke-width: 0;
+}
+
+.@{s}ts {
+
+  .ts-default();
+
+  &.@{s}keyword {
+    .ts-keyword();
+  }
+
+  &.@{s}function {
+    .ts-function();
+  }
+
+  &.@{s}parameter {
+    .ts-alt();
+  }
+
+  &.@{s}variable {
+    .ts-alt();
+  }
+
+  &.@{s}definition {
+    .ts-attribute();
+  }
+
+  &.@{s}property {
+    .ts-attribute();
+  }
+
+  &.@{s}modifier {
+    .ts-modifier();
+  }
+
+  &.@{s}operator {
+    .ts-operator();
+  }
+
+  &.@{s}punctuation {
+    .ts-punctuation();
+  }
+
+  &.@{s}key {
+    .ts-key();
+  }
+
+  &.@{s}class {
+    .ts-class();
+  }
+
+  &.@{s}comment {
+    .ts-comment();
+  }
+
+  &.@{s}brace {
+    .ts-punctuation();
+  }
+
+  &.@{s}method {
+    .ts-function();
+  }
+
+  &.@{s}accessor {
+    .ts-operator();
+  }
+
+  &.@{s}annotation {
+    .ts-attribute();
+  }
+
+  &.@{s}string {
+    .ts-string();
+  }
+
+  &.@{s}variable.@{s}parameter {
+    .ts-alt();
+  }
+
+  &.@{s}entity.@{s}name.@{s}function {
+    .ts-function();
+  }
+
+  &.@{s}storage.@{s}type.@{s}class {
+    .ts-keyword();
+  }
+
+  // class Myclass extends --> OtherClass <--
+  &.@{s}entity.@{s}other.@{s}inherited-class {
+    .ts-class();
+    text-decoration: none;
+    font-style: normal;
+  }
+
+  &.@{s}entity.@{s}name.@{s}class {
+    .ts-class();
+  }
+
+  &.@{s}storage.@{s}type.@{s}property {
+    color: hsl(11, 100%, 61%);
+    font-style: italic;
+  }
+
+  &.@{s}storage.@{s}type {
+    color: hsl(194, 9%, 55%);
+  }
+
+  &.@{s}meta.@{s}function.@{s}definition {
+    color: hsl(190, 20%, 65%);
+  }
+
+  // &.@{s}storage.@{s}type {
+  //   .ts-alt();
+  // }
+  //
+  // &.@{s}storage.@{s}type.@{s}interface {
+  //   .ts-modifier();
+  // }
+  //
+  // &.@{s}meta.@{s}syntax.@{s}object-literal.@{s}key {
+  //   .ts-attribute();
+  // }
+  //
+  // &.@{s}meta.@{s}object-literal.@{s}key {
+  //   .ts-attribute();
+  // }
+  //
+  // &.@{s}entity.@{s}name.@{s}type {
+  //   .ts-alt();
+  //   &.@{s}class {
+  //     .ts-class();
+  //   }
+  // }
+  //
+  // &.@{s}keyword.@{s}operator.@{s}new {
+  //   .ts-modifier();
+  // }
+  //
+  //
+  // &.@{s}variable.@{s}other.@{s}property {
+  //   .ts-attribute();
+  // }
+  //
+  // .@{s}objectliteral > @{s}punctuation.@{s}definition.@{s}block {
+  //   .ts-punctuation();
+  // }
+  //
+  // &.@{s}punctuation.@{s}separator.@{s}comma {
+  //   .ts-punctuation();
+  // }
+  //
+  // &.@{s}variable.@{s}other.@{s}object {
+  //   .ts-alt();
+  // }
+  //
+  // &.@{s}punctuation.@{s}accessor {
+  //   .ts-operator();
+  // }
+  //
+  // &.@{s}punctuation.@{s}separator.@{s}key-value {
+  //   .ts-attribute();
+  // }
+  //
+  // &.@{s}entity.@{s}other.@{s}inherited-class {
+  //   text-decoration: none;
+  //   font-style: normal;
+  //   .ts-class();
+  // }
+  //
+  // &.@{s}storage.@{s}modifier {
+  //   .ts-modifier();
+  // }
+}
