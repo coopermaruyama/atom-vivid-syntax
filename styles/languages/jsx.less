@@ -10,7 +10,7 @@
     }
   }
 
-  &.@{s}punctuation.@{s}definition.@{s}tag {
+  .@{s}punctuation.@{s}definition.@{s}tag {
     color: @subtle-color;
   }
 
@@ -23,7 +23,7 @@
   //     color: hsl(51, 43%, 65%);
   //   }
   // }
-  &.@{s}punctuation.@{s}section.@{s}embedded {
+  .@{s}punctuation.@{s}section.@{s}embedded {
     &.@{s}begin, &.@{s}end {
       color: @subtle-color;
       font-weight: 700;
@@ -34,15 +34,15 @@
   * render() {
   * }
   */
-  &.@{s}meta:not(.@{s}method-call) > .@{s}entity.@{s}name.@{s}function {
+  .@{s}meta:not(.@{s}method-call) > .@{s}entity.@{s}name.@{s}function {
     color: @eton-blue;
   }
-  &.@{s}delimiter.@{s}period {
+  .@{s}delimiter.@{s}period {
     color: @js-foreground-color;
   }
 
   /* attribute JS expressions */
-  &.@{s}meta.@{s}embedded.@{s}expression {
+  .@{s}meta.@{s}embedded.@{s}expression {
     /* strings */
     &.@{s}string.@{s}quoted, .@{s}string.@{s}quoted > .@{s}other {
       color: hsl(74, 58%, 66%);
@@ -65,7 +65,7 @@
   }
 
   /* plaintext within html tags */
-  &.@{s}scope.@{s}tag.@{s}block .@{s}meta.@{s}tag.@{s}block .@{s}meta.@{s}scope {
+  .@{s}scope.@{s}tag.@{s}block .@{s}meta.@{s}tag.@{s}block .@{s}meta.@{s}scope {
     color: darken(@js-foreground-color, 10%);
   }
 
@@ -79,7 +79,7 @@
   {button} <--- this line
   </div>
   */
-  &.@{s}meta.@{s}scope.@{s}tag.@{s}block .@{s}meta.@{s}scope > .@{s}expression > .@{s}punctuation.@{s}embedded.@{s}section.@{s}jsx {
+  .@{s}meta.@{s}scope.@{s}tag.@{s}block .@{s}meta.@{s}scope > .@{s}expression > .@{s}punctuation.@{s}embedded.@{s}section.@{s}jsx {
     @braceColor: hsl(280, 75%, 60%);
     &.@{s}begin, &.@{s}end {
       color: @braceColor;

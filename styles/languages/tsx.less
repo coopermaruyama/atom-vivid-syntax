@@ -2,93 +2,93 @@
 
   // color: hsl(222, 10%, 75%);
 
-  &.@{s}variable {
+  .@{s}variable {
     color: hsl(0, 0%, 85%);
     -webkit-text-stroke-width: @text-stroke-width-normal;
     font-weight: 500;
   }
 
-  &.@{s}string {
+  .@{s}string {
     color: hsl(74, 50%, 55%);
   }
 
-  &.@{s}keyword {
+  .@{s}keyword {
     color: hsl(256, 50%, 60%);
     font-weight: 500;
 
-    &.@{s}new {
+    .@{s}new {
       color: hsl(0, 0%, 70%);
     }
   }
 
-  &.@{s}import &.@{s}string {
+  .@{s}import .@{s}string {
     text-decoration: none !important;
   }
 
-  &.@{s}object-literal.@{s}key.@{s}meta {
+  .@{s}object-literal.@{s}key.@{s}meta {
     color: hsl(50, 35%, 65%);
   }
 
-  &.@{s}parameter.@{s}variable {
+  .@{s}parameter.@{s}variable {
     // font-weight: 200;
     // color: hsl(300, 35%, 70%);
   }
 
-  &.@{s}entity.@{s}name.@{s}type {
+  .@{s}entity.@{s}name.@{s}type {
     color: hsl(51, 100%, 55%);
   }
 
-  &.@{s}punctuation.@{s}definition.@{s}block {
+  .@{s}punctuation.@{s}definition.@{s}block {
     color: hsl(193, 9%, 38%);
     font-weight: 700;
   }
 
-  &.@{s}punctuation.@{s}definition.@{s}parameters {
-    &.@{s}begin,
-    &.@{s}end {
+  .@{s}punctuation.@{s}definition.@{s}parameters {
+    .@{s}begin,
+    .@{s}end {
       color: hsl(193, 9%, 38%);
     }
   }
 
-  &.@{s}keyword.@{s}operator {
-    &.@{s}comparison,
-    &.@{s}assignment,
-    &.@{s}spread,
-    &.@{s}rest,
-    &.@{s}logical {
+  .@{s}keyword.@{s}operator {
+    .@{s}comparison,
+    .@{s}assignment,
+    .@{s}spread,
+    .@{s}rest,
+    .@{s}logical {
       color: hsl(334, 100%, 45%);
     }
   }
 
-  & &.@{s}entity.@{s}name.@{s}tag {
+  & .@{s}entity.@{s}name.@{s}tag {
     color: hsl(0, 0%, 87%);
   }
 
-  &.@{s}support.@{s}constant {
+  .@{s}support.@{s}constant {
     color: hsl(45, 100%, 58%);
     font-weight: 700;
   }
 
-  &.@{s}punctuation.@{s}accessor {
+  .@{s}punctuation.@{s}accessor {
     color: hsl(334, 100%, 45%);
   }
 
-  &.@{s}punctuation.@{s}section.@{s}embedded {
+  .@{s}punctuation.@{s}section.@{s}embedded {
     color: hsl(193, 9%, 38%);
   }
 
-  &.@{s}storage.@{s}type {
+  .@{s}storage.@{s}type {
     font-weight: bold;
     color: hsl(199, 60%, 65%);
     font-style: normal;
     -webkit-text-stroke-width: @text-stroke-width-normal;
   }
 
-  &.@{s}entity.@{s}other.@{s}attribute-name {
+  .@{s}entity.@{s}other.@{s}attribute-name {
     color: hsl(220, 6%, 49%);
   }
 
-  &.@{s}meta.@{s}tag > &.@{s}operator.@{s}assignment {
+  .@{s}meta.@{s}tag > .@{s}operator.@{s}assignment {
     color: hsl(220, 6%, 49%);
   }
 }
